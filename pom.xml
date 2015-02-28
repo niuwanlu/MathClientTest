@@ -10,7 +10,7 @@
 
     <properties>
         <spring.version>3.0.5.RELEASE</spring.version>
-        <cxf.version>2.7.10</cxf.version>
+        <cxf.version>2.7.11</cxf.version>
     </properties>
 
     <dependencies>
@@ -56,6 +56,13 @@
             <artifactId>cxf-rt-core</artifactId>
             <version>${cxf.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
