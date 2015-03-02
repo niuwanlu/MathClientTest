@@ -1,0 +1,29 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cxfservices.codereq.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="HelloWorldImplService" targetNamespace="http://cxfservices.codereq.com/">
+    <wsdl:message name="getHelloWorldAsStringResponse">
+        <wsdl:part name="return" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getHelloWorldAsString"></wsdl:message>
+    <wsdl:portType name="HelloWorld">
+        <wsdl:operation name="getHelloWorldAsString">
+            <wsdl:input message="tns:getHelloWorldAsString" name="getHelloWorldAsString"></wsdl:input>
+            <wsdl:output message="tns:getHelloWorldAsStringResponse" name="getHelloWorldAsStringResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="HelloWorldImplServiceSoapBinding" type="tns:HelloWorld">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getHelloWorldAsString">
+            <soap:operation soapAction="" style="rpc"/>
+            <wsdl:input name="getHelloWorldAsString">
+                <soap:body namespace="http://cxfservices.codereq.com/" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getHelloWorldAsStringResponse">
+                <soap:body namespace="http://cxfservices.codereq.com/" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="HelloWorldImplService">
+        <wsdl:port binding="tns:HelloWorldImplServiceSoapBinding" name="HelloWorldImplPort">
+            <soap:address location="http://localhost:8080/cxf-service-one/HelloWorld"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
